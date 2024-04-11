@@ -5,7 +5,7 @@ from . forms import SignUpForm,AddRecordForm
 from . models import Record
 
 
-
+#Home
 def home(request):
     records = Record.objects.all()
     #check to see if logging in
@@ -26,8 +26,6 @@ def home(request):
         return render(request, 'home.html', {'records':records})
 
 
-# def login_user(request):
-#     pass
 
 #Logout function
 def logout_user(request):
@@ -67,6 +65,7 @@ def customer_record(request, pk):
         return redirect('home')
 
 
+
 #Delete customer record
 def delete_record(request, pk):
     if request.user.is_authenticated:
@@ -77,7 +76,9 @@ def delete_record(request, pk):
     else:
         messages.success(request, "You must be logged in to delete the record")
         return redirect('home')
-    
+
+
+
 #Add new customer record
 def add_record(request):
     form = AddRecordForm(request.POST or None)
@@ -90,4 +91,20 @@ def add_record(request):
         return render(request, 'add_record.html', {'form':form})
     else:
         messages.success(request,"You must be logged in")
+        return redirect('home')
+
+
+
+#Update customer record
+def update_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Record.objects.get(id=pk)
+        form = AddRecordForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Record has been updated")
+            return redirect('home')
+        return render(request, 'update_record.html', {'form':form})
+    else:
+        messages.success(request, "Record has been updated")
         return redirect('home')

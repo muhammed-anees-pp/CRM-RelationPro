@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <style>
+        h1 {
+          text-align: center;
+        }
+    </style>
+    <h1> Update Record</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br/>
+
+    <button type="submit" class="btn btn-secondary">Update Record</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}

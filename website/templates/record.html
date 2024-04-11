@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-
-
 <div class="card">
     <div class="card-header">
         <strong>{{ customer_record.first_name }} 
@@ -21,29 +18,15 @@
         <strong>Zipcode: </strong>{{ customer_record.zipcode }} <br/><br/>
         <strong>Created At: </strong>{{ customer_record.created_at }} <br/><br/>
         <strong>ID: </strong>{{ customer_record.id }} <br/><br/>
-
     
-    
-      </p>
-    
-    
+      </p>    
     </div>
-</div>
+</div><br/>
 
-<br/>
 <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 
-<a href="{% url 'delete_record' customer_record.id  %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'update_record' customer_record.id  %}" class="btn btn-secondary">Update Record</a>
 
-
-
-
-
-
-
-
-
-
-
+<a href="{% url 'delete_record' customer_record.id  %}" class="btn btn-danger">Delete Record</a>
 
 {% endblock %}
