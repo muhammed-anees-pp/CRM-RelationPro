@@ -28,9 +28,3 @@
 - Navigate through the dashboard to manage customers, contacts and other records
 - Explore the various features and functionalities to effectively manage customer relationships.
 
-## Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-
-## Contact
-For any questions or feedback, feel free to contact me at (mailto:muhammedaneespp.work@gmail.com).
