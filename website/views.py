@@ -108,3 +108,5 @@ def update_record(request, pk):
     else:
         messages.success(request, "Record has been updated")
         return redirect('home')
+    
+def
